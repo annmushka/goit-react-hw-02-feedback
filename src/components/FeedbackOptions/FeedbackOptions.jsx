@@ -18,11 +18,6 @@ const FeedbackOptions = ({ options, handleClick }) => (
 export default FeedbackOptions;
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.shape({
-    good: PropTypes.number.isRequired,
-    neutral: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
-  }),
-
+  options: PropTypes.arrayOf.string,
   handleClick: PropTypes.func,
 };
