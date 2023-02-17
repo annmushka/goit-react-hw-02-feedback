@@ -18,6 +18,6 @@ const FeedbackOptions = ({ options, handleClick }) => (
 export default FeedbackOptions;
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.arrayOf.string,
+  options: PropTypes.arrayOf(PropTypes.string),
   handleClick: PropTypes.func,
 };
