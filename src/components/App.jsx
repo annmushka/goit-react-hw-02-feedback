@@ -12,18 +12,15 @@ export class App extends Component {
     bad: 0,
   };
 
-  countTotalFeedback() {
-    let total = Object.values(this.state).reduce((sum, elem) => {
-      return sum + elem;
-    }, 0);
-    return total;
-  }
+  countTotalFeedback = () => {
+    return Object.values(this.state).reduce((sum, elem) => sum + elem, 0);
+  };
 
-  countPositiveFeedbackPercentage() {
-    let total = this.countTotalFeedback();
-    let positive = Math.round((this.state.good / total) * 100);
-    return positive;
-  }
+  countPositiveFeedbackPercentage = () => {
+    return this.countTotalFeedback()
+      ? Math.round((this.state.good / this.countTotalFeedback()) * 100)
+      : 0;
+  };
 
   handleClick = name => {
     this.setState(prevState => {
@@ -34,7 +31,7 @@ export class App extends Component {
   render() {
     const { good, neutral, bad } = this.state;
 
-    let total = this.countTotalFeedback();
+    const total = this.countTotalFeedback();
 
     return (
       <main>
